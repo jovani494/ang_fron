@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { StorageService } from '../_services/storage.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EmployeModel } from '../models/employe.model';
+import { EmployeService } from '../admin/employe/employe.service';
 
 @Component({
   selector: 'app-board-moderator',
@@ -8,10 +12,17 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardEmployeComponent implements OnInit {
   content?: string;
+  isLoggedIn = false;
+  showModeratorBoard = false;
+  private roles: string[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(public fb: FormBuilder,
+    private userService: UserService,
+    private storageService: StorageService) {
+     }
 
   ngOnInit(): void {
+
     this.userService.getModeratorBoard().subscribe({
       next: data => {
         this.content = data;
@@ -29,5 +40,16 @@ export class BoardEmployeComponent implements OnInit {
         }
       }
     });
+
+    this.isLoggedIn = this.storageService.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.roles = user.roles;
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+    }
   }
+
+
 }

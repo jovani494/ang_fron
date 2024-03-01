@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,18 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { ClientListComponent } from './admin/client/client-list/client-list.component';
+import { CreateEmployeComponent } from './admin/employe/create-employe/create-employe.component';
+import { ListEmployeComponent } from './admin/employe/list-employe/list-employe.component';
+import { ServiceComponent } from './home/service/service.component';
+import { EquipeComponent } from './home/equipe/equipe.component';
+import { ViewComponent } from './home/service/view/view.component';
+import { EmploiDuTempsComponent } from './employe/emploi-du-temps/emploi-du-temps.component';
+import { ProfileEmpComponent } from './employe/profile/profileEmp.component';
+import { EdtCreateComponent } from './employe/emploi-du-temps/edt-create/edt-create.component';
+import { AppointmentCreateComponent } from './home/appointment-create/appointment-create.component';
+import { MytasksComponent } from './employe/mytasks/mytasks.component';
+import { MyAppointmentsComponent } from './home/my-appointments/my-appointments.component';
+import { AppointmentsComponent } from './admin/appointments/appointments.component';
 
 
 @NgModule({
@@ -45,6 +58,18 @@ import { ClientListComponent } from './admin/client/client-list/client-list.comp
     BoardEmployeComponent,
     BoardUserComponent,
     ClientListComponent,
+    CreateEmployeComponent,
+    ListEmployeComponent,
+    ServiceComponent,
+    EquipeComponent,
+    ViewComponent,
+    EmploiDuTempsComponent,
+    ProfileEmpComponent,
+    EdtCreateComponent,
+    AppointmentCreateComponent,
+    MytasksComponent,
+    MyAppointmentsComponent,
+    AppointmentsComponent,
     
     
   ],
@@ -53,7 +78,8 @@ import { ClientListComponent } from './admin/client/client-list/client-list.comp
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
